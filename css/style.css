@@ -1,0 +1,196 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    cursor: default;
+}
+
+button {
+    background-color: white;
+    border: none;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+button > i {
+    font-size: 2rem;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+button:hover > i {
+    transform: scale(1.2);
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+#carousel,
+#thumbnails {
+    height: 70%;
+}
+
+#carousel {
+    width: 50%;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) -12px 0px 30px, rgba(0, 0, 0, 0.12) -4px 0px 6px, rgba(0, 0, 0, 0.17) -12px 0px 13px, rgba(0, 0, 0, 0.09) -3px 0px 5px;
+    overflow-y: hidden;
+}
+
+#carousel > div.carousel-item {
+    width: 100%;
+    height: 100%;
+}
+
+#carousel div.carousel-item > img.game-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+#thumbnails {
+    display: flex;
+    flex-direction: column;
+    background-color: #bababa;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 12px 0px 30px, rgba(0, 0, 0, 0.12) 4px 0px 6px, rgba(0, 0, 0, 0.17) 12px 0px 13px, rgba(0, 0, 0, 0.09) 3px 0px 5px;
+}
+
+#thumbnails img.thumbnail-image {
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+#thumbnails img.thumbnail-image:hover {
+    transform: translate(5%);
+}
+
+#carousel > div.carousel-item {
+    display: none;
+    position: relative;
+}
+
+#carousel > div.carousel-item > div.text-container {
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+    color: white;
+    text-align: end;
+    padding: .2rem;
+}
+
+#carousel > div.carousel-item.active {
+    display: block;
+}
+
+#button-previous,
+#button-next,
+#button-autoplay,
+#button-reverse {
+    position: absolute;
+}
+
+#button-previous {
+    left: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#button-next {
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#button-autoplay {
+    top: 2%;
+    right: 60%;
+    transform: translateX(50%);
+}
+
+#button-reverse {
+    top: 2%;
+    right: 40%;
+    transform: translateX(50%);
+}
+
+
+/* Responsive Layouts */
+
+/* XS Layout (from 0px to 576px */
+@media screen and (max-width: 576px) {
+    #carousel {
+        width: 70%;
+    }
+
+    button {
+        width: 30px;
+    }
+
+    button > i {
+        font-size: 1.5rem;
+    }
+
+    #thumbnails img.thumbnail-image {
+        width: 100px;
+    }
+}
+
+/* 2K Layout (from 2560px to 3840px */
+@media screen and (min-width: 2560px) {
+    html {
+        font-size: 20px;
+    }
+
+    button {
+        width: 80px;
+    }
+
+    button > i {
+        font-size: 2.5rem;
+    }
+
+    #thumbnails img.thumbnail-image {
+        width: 300px;
+    }
+}
+
+/* 4K Layout (from 3840px to higher resolutions */
+@media screen and (min-width: 3840px) {
+    html {
+        font-size: 30px;
+    }
+
+    button {
+        width: 120px;
+    }
+
+    button > i {
+        font-size: 3rem;
+    }
+
+    #thumbnails img.thumbnail-image {
+        width: 400px;
+    }
+}
