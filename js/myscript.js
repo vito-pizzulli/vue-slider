@@ -27,7 +27,9 @@ createApp ({
                 }
             ],
             activeIndex : 0,
-            isHovering: false
+            isHovering: false,
+            isAutoplaying: true,
+            autoplayButtonClasses: 'fa-solid fa-pause',
         }
     },
     methods: {
@@ -51,7 +53,17 @@ createApp ({
             this.activeIndex = index;
         },
         autoplay() {
-            setInterval(() => this.nextImage(), 3000);
+            this.imageSlide = setInterval(() => this.nextImage(), 3000);
+        },
+        toggleAutoplay() {
+            if (this.isAutoplaying) {
+                clearInterval(this.imageSlide);
+                this.autoplayButtonClasses = 'fa-solid fa-play';
+            } else {
+                this.autoplay();
+                this.autoplayButtonClasses = 'fa-solid fa-pause';
+            }
+            this.isAutoplaying = !this.isAutoplaying;
         }
     },
     mounted: function() {

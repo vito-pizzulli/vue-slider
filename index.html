@@ -38,6 +38,9 @@
             <button id="button-next" @click="nextImage()">
                 <i class="fa-solid fa-caret-right"></i>
             </button>
+            <button id="button-autoplay" @click="toggleAutoplay()">
+                <i :class="autoplayButtonClasses"></i>
+            </button>
         </div>
         <div id="thumbnails">
             <img v-for="(image, index) in images.length" :src="images[index].image" alt="Thumbnail Image" class="thumbnail-image" @click="thumbnailClick(index)">
