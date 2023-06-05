@@ -23,12 +23,14 @@
 
     <div id="app">
         <div id="carousel">
+            <div class="carousel-item">
+                <img :src="images[activeIndex].image" alt="Game Image" class="game-image">
+            </div>
             <button id="button-previous">
                 <i class="fa-solid fa-caret-left"></i>
             </button>
             <button id="button-next">
                 <i class="fa-solid fa-caret-right"></i>
-            </button>
             </button>
         </div>
     </div>

@@ -21,7 +21,6 @@ button {
     width: 50px;
     aspect-ratio: 1;
     border-radius: 50%;
-    z-index: 1;
 }
 
 button > i {
@@ -87,7 +86,6 @@ p {
 }
 
 #carousel > div.carousel-item {
-    display: none;
     position: relative;
 }
 
@@ -98,10 +96,6 @@ p {
     color: white;
     text-align: end;
     padding: .2rem;
-}
-
-#carousel > div.carousel-item.active {
-    display: block;
 }
 
 #button-previous,
