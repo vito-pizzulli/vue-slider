@@ -37,6 +37,9 @@
                 <i class="fa-solid fa-caret-right"></i>
             </button>
         </div>
+        <div id="thumbnails">
+            <img v-for="(image, index) in images.length" :src="images[index].image" alt="Thumbnail Image" class="thumbnail-image">
+        </div>
     </div>
 
     <script src="js/myscript.js"></script>
