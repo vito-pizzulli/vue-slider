@@ -46,6 +46,12 @@ createApp ({
         },
         thumbnailClick(index) {
             this.activeIndex = index;
+        },
+        autoplay() {
+            setInterval(() => this.nextImage(), 3000);
         }
+    },
+    mounted: function() {
+        this.autoplay();
     }
 }) .mount('#app');
