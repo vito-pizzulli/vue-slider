@@ -23,7 +23,9 @@
 
     <div id="app">
         <div id="carousel">
-            <div class="carousel-item">
+            <div class="carousel-item"
+            @mouseover="isHovering = true"
+            @mouseleave="isHovering = false">
                 <img :src="images[activeIndex].image" alt="Game Image" class="game-image">
                 <div class="text-container">
                     <h1>{{ images[activeIndex].title }}</h1>
