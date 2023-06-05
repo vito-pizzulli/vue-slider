@@ -43,6 +43,9 @@ createApp ({
             } else {
                 this.activeIndex++;
             }
+        },
+        thumbnailClick(index) {
+            this.activeIndex = index;
         }
     }
 }) .mount('#app');

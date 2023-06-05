@@ -38,7 +38,7 @@
             </button>
         </div>
         <div id="thumbnails">
-            <img v-for="(image, index) in images.length" :src="images[index].image" alt="Thumbnail Image" class="thumbnail-image">
+            <img v-for="(image, index) in images.length" :src="images[index].image" alt="Thumbnail Image" class="thumbnail-image" @click="thumbnailClick(index)">
         </div>
     </div>
 
