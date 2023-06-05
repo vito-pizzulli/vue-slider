@@ -21,12 +21,12 @@ button {
     width: 50px;
     aspect-ratio: 1;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 button > i {
     font-size: 2rem;
     transition: all .5s;
-    cursor: pointer;
 }
 
 button:hover > i {
