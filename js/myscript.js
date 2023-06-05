@@ -29,15 +29,19 @@ createApp ({
             activeIndex : 0,
             isHovering: false,
             isAutoplaying: true,
+            isReverse: false,
             autoplayButtonClasses: 'fa-solid fa-pause',
+            reverseButtonClasses: 'fa-solid fa-arrow-rotate-left',
         }
     },
     methods: {
         previousImage() {
-            if (this.activeIndex === 0){
-                this.activeIndex = this.images.length - 1;
-            } else {
-                this.activeIndex--;
+            if (this.isHovering === false) {
+                if (this.activeIndex === 0) {
+                    this.activeIndex = this.images.length - 1;
+                } else {
+                    this.activeIndex--;
+                }
             }
         },
         nextImage() {
@@ -54,14 +58,36 @@ createApp ({
         },
         autoplay() {
             this.imageSlide = setInterval(() => this.nextImage(), 3000);
+            this.reverseButtonClasses = 'fa-solid fa-arrow-rotate-left';
+        },
+        autoplayReverse() {
+            if (this.isReverse === false) {
+                clearInterval(this.imageSlide);
+                this.imageSlideReverse = setInterval(() => this.previousImage(), 3000);
+                this.reverseButtonClasses = 'fa-solid fa-arrow-rotate-right';
+            } else {
+                clearInterval(this.imageSlideReverse);
+                this.autoplay();
+            }
+            this.isReverse = !this.isReverse;
         },
         toggleAutoplay() {
-            if (this.isAutoplaying) {
-                clearInterval(this.imageSlide);
-                this.autoplayButtonClasses = 'fa-solid fa-play';
+            if (this.isReverse === false) {
+                if (this.isAutoplaying) {
+                    clearInterval(this.imageSlide);
+                    this.autoplayButtonClasses = 'fa-solid fa-play';
+                } else {
+                    this.autoplay();
+                    this.autoplayButtonClasses = 'fa-solid fa-pause';
+                }
             } else {
-                this.autoplay();
-                this.autoplayButtonClasses = 'fa-solid fa-pause';
+                if (this.isAutoplaying) {
+                    clearInterval(this.imageSlideReverse);
+                    this.autoplayButtonClasses = 'fa-solid fa-play';
+                } else {
+                    this.imageSlideReverse = setInterval(() => this.previousImage(), 3000);
+                    this.autoplayButtonClasses = 'fa-solid fa-pause';
+                }
             }
             this.isAutoplaying = !this.isAutoplaying;
         }

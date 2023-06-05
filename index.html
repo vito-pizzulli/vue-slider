@@ -41,6 +41,9 @@
             <button id="button-autoplay" @click="toggleAutoplay()">
                 <i :class="autoplayButtonClasses"></i>
             </button>
+            <button id="button-reverse" @click="autoplayReverse()">
+                <i :class="reverseButtonClasses"></i>
+            </button>
         </div>
         <div id="thumbnails">
             <img v-for="(image, index) in images.length" :src="images[index].image" alt="Thumbnail Image" class="thumbnail-image" @click="thumbnailClick(index)">
