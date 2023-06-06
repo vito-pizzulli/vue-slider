@@ -92,7 +92,7 @@ createApp ({
             this.isAutoplaying = !this.isAutoplaying;
         }
     },
-    mounted: function() {
+    mounted() {
         this.autoplay();
     }
 }) .mount('#app');
